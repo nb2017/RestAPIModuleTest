@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport"
+        content="width=defice-widh, user-scalable=no, inital-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="/static/main.css" type="text/css">
+        <title>どこかで見たことある某掲示板</title>
+    </head>
+    <body>
+        <h1>どこかで見たことある某掲示板　湘南編</h1>
+        <form action="/save" method="post">
+            <table class="list">
+                <tr>
+                    <td>
+                        <label for="start">出発</label><br/>
+                        <input id="start" type="text" name="start"/>
+                    </td>
+                    <td>
+                        <label for="finish">到着</label><br/>
+                        <input id="finish" type="text" name="finish"/>
+                    </td>
+                    <td>
+                        <button>追加</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <label for="memo">メモ</label><br/>
+                        <textarea id="memo" type="text" name="memo"></textarea>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <h3>乗車一覧</h3>
+        <table>
+            <tr>
+                <th>出発</th>
+                <th>到着</th>
+                <th>日時</th>
+                <th>メモ</th>
+            </tr>
+            <tr>
+                <td>御嶽山</td>
+                <td>片瀬江ノ島</td>
+                <td>2020-06-23</td>
+                <td>終電逃した</td>
+            </tr>
+            <tr>
+                <td>御嶽山</td>
+                <td>代々木</td>
+                <td>2020-06-24</td>
+                <td>なぜ代々木まで行ったし</td>
+            </tr>
+        </table>
+
+    </body>
+</html>
