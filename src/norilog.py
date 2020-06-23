@@ -1,7 +1,7 @@
 import json
 
-from flask import Flask, render_template
-
+from flask import Flask, render_template, redirect, request, Markup, escape
+from datetime import datetime
 
 application = Flask(__name__)
 
@@ -43,6 +43,23 @@ def load_data():
         database = []
     
     return database
+
+@application.route('/save', methods=['POST'])
+def save():
+    """記録されたデータを取得します"""
+    start = request.form.get('start')
+    finish = request.form.get('finish')
+    memo = request.form.get('memo')
+    create_at = datetime.now()
+    save_data(start, finish, memo, create_at)
+
+    return redirect('/')
+
+@application.template_filter('n12br')
+def n12br_filter(s):
+    """改行文字をbrタグに置き換えるテンプレートフィルタ
+    """
+    return escape(s).replace('¥n', Markup('<br>'))
 
 @application.route('/')
 def index():

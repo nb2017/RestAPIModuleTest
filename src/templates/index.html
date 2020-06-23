@@ -12,7 +12,7 @@
     <body>
         <h1>どこかで見たことある某掲示板　湘南編</h1>
         <form action="/save" method="post">
-            <table class="list">
+            <table>
                 <tr>
                     <td>
                         <label for="start">出発</label><br/>
@@ -35,25 +35,15 @@
             </table>
         </form>
         <h3>乗車一覧</h3>
-        <table>
+        <table class="list">
+            {% for ride in rides %}
             <tr>
-                <th>出発</th>
-                <th>到着</th>
-                <th>日時</th>
-                <th>メモ</th>
+                <th>{{ride.start}}</th>
+                <th>{{ride.finish}}</th>
+                <th>{{ride.created_at}}</th>
+                <th>{{ride.memo | n12br }}</th>
             </tr>
-            <tr>
-                <td>御嶽山</td>
-                <td>片瀬江ノ島</td>
-                <td>2020-06-23</td>
-                <td>終電逃した</td>
-            </tr>
-            <tr>
-                <td>御嶽山</td>
-                <td>代々木</td>
-                <td>2020-06-24</td>
-                <td>なぜ代々木まで行ったし</td>
-            </tr>
+            {% endfor %}
         </table>
 
     </body>
